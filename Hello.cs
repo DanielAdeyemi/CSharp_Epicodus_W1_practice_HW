@@ -1,33 +1,82 @@
 using System;
+using System.Collections.Generic;
 
-class HotelCost
+class PhineBook
 {
-    static void Main()
+    public static Dictionary<string, string> phoneNumbers = new Dictionary<string, string>();
+    static void Main() // interacting with a user through a console
     {
-      Console.WriteLine("In what season are you booking a stay?");
-      string season = Console.ReadLine();
-      Console.WriteLine("On the weekend or weeknight?");
-      string day = Console.ReadLine();
-      bool summer = season == "summer";
-      bool weekend = day == "weekend";
-      if (summer && weekend) 
+      Console.WriteLine("Main Menu");
+      Console.WriteLine("Would you like to add a person to your phone book? ['Y' for yes, 'Enter' for no.");
+      string answer = Console.ReadLine();
+      if (answer == "Y" || answer == "y")
       {
-        Console.WriteLine("Your stay is probably going to be pretty expensive. It is both - peak travel season and the weekend!");
+        AddContact();
       }
-        else if (summer || weekend)
-        {
-            Console.WriteLine("Your stay might be more expensive than normal.");
-        }
-        else if (!(summer || weekend))
-        {
-            Console.WriteLine("This is the cheapest possible option");
-        }
-        else
-        {
-            Console.WriteLine("Your stay might be expensive but it could be worse.");
-        }
+      else
+      {
+          Console.WriteLine("Would you like to look up number in your phone book? ['Y for yes', 'Enter' for no]" );
+          string finishedAnswer = Console.ReadLine();
+          if (finishedAnswer == "Y" || finishedAnswer == "y")
+          {
+             LookUpContact();              
+          }
+          else
+          {
+              Main();
+          }
+      }
+    }
+    static void AddContact()
+    {
+      Console.WriteLine("NEW CONTACT");
+      Console.WriteLine("Enter a new contact name");
+      string name = Console.ReadLine();
+      Console.WriteLine("Enter a new contact phone");
+      string number = Console.ReadLine();
+      if (phoneNumbers.ContainsKey(name))
+      {
+        Console.WriteLine($"That person already in your list. Their phone is {phoneNumbers[name]}");
+      }
+      else
+      {
+          phoneNumbers.Add(name, number);
+      }
+    }
+    static void LookUpContact()
+    {
+
     }
 }
+
+// class HotelCost
+// {
+//     static void Main()
+//     {
+//       Console.WriteLine("In what season are you booking a stay?");
+//       string season = Console.ReadLine();
+//       Console.WriteLine("On the weekend or weeknight?");
+//       string day = Console.ReadLine();
+//       bool summer = season == "summer";
+//       bool weekend = day == "weekend";
+//       if (summer && weekend) 
+//       {
+//         Console.WriteLine("Your stay is probably going to be pretty expensive. It is both - peak travel season and the weekend!");
+//       }
+//         else if (summer || weekend)
+//         {
+//             Console.WriteLine("Your stay might be more expensive than normal.");
+//         }
+//         else if (!(summer || weekend))
+//         {
+//             Console.WriteLine("This is the cheapest possible option");
+//         }
+//         else
+//         {
+//             Console.WriteLine("Your stay might be expensive but it could be worse.");
+//         }
+//     }
+// }
 
 
 // class FirstLetterChecker
