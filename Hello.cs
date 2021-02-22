@@ -45,7 +45,18 @@ class PhineBook
     }
     static void LookUpContact()
     {
-
+      Console.WriteLine("CONTACT LOOKUP");
+      System.Console.WriteLine("Whose number you want to look up?");
+      string friend = Console.ReadLine();
+      if (phoneNumbers.ContainsKey(friend))
+      {
+        Console.WriteLine($"{friend}'s phone number is {phoneNumbers[friend]}");
+      }
+      else
+      {
+        Console.WriteLine("That person is not in your phone book");
+      }
+      Main();
     }
 }
 
