@@ -47,8 +47,13 @@ public class Program //UI
     {
       if (automobile.WorthBuying(maxPrice))
       {
-        CarsMatchingSearch.Add(automobile.MakeModel);
+        CarsMatchingSearch.Add(automobile);
       }
+    }
+
+    foreach (Car automobile in CarsMatchingSearch)
+    {
+      Console.WriteLine(automobile.MakeModel);        
     }
   }
 }
