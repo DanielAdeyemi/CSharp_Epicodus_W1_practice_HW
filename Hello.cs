@@ -31,6 +31,13 @@ public class Program //UI
     amc.MakeModel = "1976 AMC Pacer";
     amc.Price = 400;
     amc.Miles = 198000;
+
+    List<Car> Cars = new List<Car>() { volkswagen, yugo, ford, amc };
+
+    foreach(Car automobile in Cars)
+    {
+      Console.WriteLine(automobile.MakeModel);
+    }
   }
 }
 
